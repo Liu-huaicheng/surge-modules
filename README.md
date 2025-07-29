@@ -4,13 +4,14 @@ Collection of Surge modules for Mac - VPN integrations and custom configurations
 
 ## SealSuite VPN Integration Module
 
-This module configures Surge to work properly with SealSuite VPN using dual-layer exclusions: domain-based proxy skipping and IP-based TUN interface exclusions.
+This module configures Surge to work properly with SealSuite VPN using multiple exclusion methods: domain-based proxy skipping, IP-based TUN interface exclusions, and process-based routing rules.
 
 ### Features
 
 - Skip proxy for Claude AI and Anthropic domains
 - Exclude Claude AI and Anthropic IP addresses from TUN interface routing
-- Dual-layer protection for comprehensive VPN integration
+- Direct routing for corplink-service process traffic
+- Multi-layer protection for comprehensive VPN integration
 - Ensures proper functionality when using SealSuite VPN alongside Surge
 - Easy URL-based installation
 
@@ -37,7 +38,7 @@ This module configures Surge to work properly with SealSuite VPN using dual-laye
 
 ### What This Module Does
 
-The module adds dual-layer exclusions to your Surge setup:
+The module adds multi-layer exclusions to your Surge setup:
 
 ```ini
 [General]
@@ -46,14 +47,19 @@ skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com
 
 # Exclude Claude AI and Anthropic IP addresses from TUN interface
 tun-excluded-routes = %APPEND% 160.79.104.10/32
+
+[Rule]
+# Direct connection for corplink-service process
+PROCESS-NAME,/usr/local/corplink/corplink-service,DIRECT
 ```
 
 This configuration provides comprehensive protection:
 
 - **Domain-based exclusion** (`skip-proxy`): Handles domain resolution and works with Surge's proxy server
 - **IP-based exclusion** (`tun-excluded-routes`): Excludes specific IP addresses from TUN interface routing, ensuring traffic bypasses the VPN tunnel entirely
+- **Process-based routing** (`PROCESS-NAME`): Routes traffic from specific processes (corplink-service) directly without proxy
 
-Both configurations work together to ensure that traffic to Claude AI and Anthropic services goes directly through your SealSuite VPN connection without interference from Surge's routing.
+All configurations work together to ensure that traffic to Claude AI and Anthropic services, plus corplink-service process traffic, goes directly through your SealSuite VPN connection without interference from Surge's routing.
 
 ### Compatibility
 
