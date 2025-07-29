@@ -20,13 +20,28 @@ This module configures Surge to work properly with SealSuite VPN using multiple 
 #### Method 1: Install from URL (Recommended)
 
 1. Open **Surge for Mac**
-2. Go to the **Modules** tab
-3. Click **Install Module from URL**
+2. Navigate to the **Module** section (More → Module)
+   
+   ![Navigate to Module](images/surge-module-navigation.png)
+
+3. Click **Install from URL...**
+   
+   ![Install from URL button](images/surge-install-from-url.png)
+
 4. Paste the following URL:
    ```
    https://raw.githubusercontent.com/Liu-huaicheng/surge-modules/main/sealsuite-vpn.sgmodule
    ```
-5. Click **Install**
+   
+   ![Enter URL dialog](images/surge-enter-url.png)
+
+5. Click **Done** to install the module
+
+6. Enable the module by checking the **Enabled** checkbox
+   
+   ![Enable module](images/surge-module-enabled.png)
+
+7. Click **Apply** to save changes
 
 #### Method 2: Manual Installation
 
