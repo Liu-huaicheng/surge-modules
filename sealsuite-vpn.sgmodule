@@ -1,0 +1,8 @@
+#!name=SealSuite VPN Integration
+#!desc=Enable SealSuite VPN to work alongside Surge with proper routing and MITM exclusions
+#!system=mac
+#!category=VPN
+
+[General]
+# Skip proxy for Claude AI and Anthropic domains
+skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com
