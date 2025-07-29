@@ -6,6 +6,8 @@ Collection of Surge modules for Mac - VPN integrations and custom configurations
 
 This module configures Surge to work properly with SealSuite VPN using multiple exclusion methods: domain-based proxy skipping, IP-based TUN interface exclusions, and process-based routing rules.
 
+📊 **[View Integration Flow Diagram](docs/sealsuite-surge-integration-flow.md)** - Visual guide showing how SealSuite VPN and Surge work together
+
 ### Features
 
 - Skip proxy for Claude AI and Anthropic domains
