@@ -12,4 +12,4 @@ tun-excluded-routes = %APPEND% 160.79.104.10/32
 
 [Rule]
 # Direct connection for corplink-service process
-PROCESS-NAME,/usr/local/corplink/corplink-service,DIRECT
+PROCESS-NAME,corplink-service,DIRECT
