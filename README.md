@@ -10,7 +10,7 @@ This module configures Surge to work properly with SealSuite VPN using multiple 
 
 ### Features
 
-- Skip proxy for Claude AI and Anthropic domains
+- Skip proxy for Claude AI, Anthropic, and Docker Hub domains
 - Exclude Claude AI and Anthropic IP addresses from TUN interface routing
 - Block Claude AI and Anthropic domains with extended matching
 - Direct routing for corplink-service process traffic
@@ -77,8 +77,8 @@ The module adds multi-layer exclusions to your Surge setup:
 
 ```ini
 [General]
-# Skip proxy for Claude AI and Anthropic domains
-skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com
+# Skip proxy for Claude AI, Anthropic, and Docker Hub domains
+skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.docker.io, docker.io
 
 # Exclude Claude AI and Anthropic IP addresses from TUN interface
 tun-excluded-routes = %APPEND% 160.79.104.10/32
@@ -99,9 +99,9 @@ This configuration provides comprehensive protection:
 - **Domain suffix rejection** (`DOMAIN-SUFFIX`): Completely blocks access to Claude AI and Anthropic domains with extended matching for comprehensive coverage
 - **Process-based routing** (`PROCESS-NAME`): Routes traffic from specific processes (corplink-service) directly without proxy
 
-All configurations work together to ensure that traffic to Claude AI and Anthropic services, plus corplink-service process traffic, goes directly through your SealSuite VPN connection without interference from Surge's routing.
+All configurations work together to ensure that traffic to Claude AI, Anthropic, and Docker Hub services, plus corplink-service process traffic, goes directly through your SealSuite VPN connection without interference from Surge's routing.
 
-> **📝 Important Note**: Some network requests may bypass Surge entirely due to SealSuite VPN's built-in DNS server and intelligent routing. SealSuite DNS classifies domains and can redirect corporate/internal traffic through VPN tunnels before Surge processes them. This module ensures that excluded services (Claude AI, Anthropic, corplink-service) work optimally in this mixed routing environment.
+> **📝 Important Note**: Some network requests may bypass Surge entirely due to SealSuite VPN's built-in DNS server and intelligent routing. SealSuite DNS classifies domains and can redirect corporate/internal traffic through VPN tunnels before Surge processes them. This module ensures that excluded services (Claude AI, Anthropic, Docker Hub, corplink-service) work optimally in this mixed routing environment.
 
 ### Compatibility
 
