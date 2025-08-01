@@ -53,6 +53,23 @@ This module configures Surge to work properly with SealSuite VPN using multiple 
 4. Click **Install Module from File**
 5. Select the downloaded file
 
+### Updating the Module
+
+To update the module to get the latest changes:
+
+1. Open **Surge for Mac**
+2. Navigate to the **Module** section (More → Module)
+3. Find the **SealSuite VPN Integration** module
+4. Right-click on the module to show the context menu
+5. Select **Update...** from the menu
+   
+   ![Update module context menu](images/surge-module-update.png)
+
+6. The module will automatically fetch and apply the latest version
+7. Click **Apply** to save changes
+
+> **💡 Tip**: You can also use **Copy URL** from the context menu to share the module URL with others, or **Delete...** to remove the module if needed.
+
 ### What This Module Does
 
 The module adds multi-layer exclusions to your Surge setup:
