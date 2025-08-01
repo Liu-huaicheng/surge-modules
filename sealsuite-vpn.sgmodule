@@ -12,8 +12,8 @@ tun-excluded-routes = %APPEND% 160.79.104.10/32
 
 [Rule]
 # Reject Claude AI and Anthropic domains
-DOMAIN-SUFFIX,claude.ai,REJECT
-DOMAIN-SUFFIX,anthropic.com,REJECT
+DOMAIN-SUFFIX,claude.ai,REJECT,extended-matching
+DOMAIN-SUFFIX,anthropic.com,REJECT,extended-matching
 
 # Direct connection for corplink-service process
 PROCESS-NAME,corplink-service,DIRECT
