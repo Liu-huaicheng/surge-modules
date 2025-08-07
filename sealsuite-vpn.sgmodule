@@ -5,7 +5,7 @@
 
 [General]
 # Skip proxy for Claude AI, Anthropic, and Docker Hub domains
-skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.docker.io, docker.io
+skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com
 
 
 [Rule]
@@ -13,6 +13,9 @@ skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.
 DOMAIN-SUFFIX,claude.ai,REJECT,extended-matching
 DOMAIN-SUFFIX,anthropic.com,REJECT,extended-matching
 IP-CIDR,160.79.104.10/32,REJECT
+
+# Direct connection for 30.100.0.0/16 subnet (bypass VPN)
+IP-CIDR,30.100.0.0/16,DIRECT
 
 # Direct connection for corplink-service process
 PROCESS-NAME,corplink-service,DIRECT
