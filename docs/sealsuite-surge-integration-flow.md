@@ -29,7 +29,7 @@ flowchart TD
     DNSIntercept --> DomainCheck{🌍 Foreign/International<br/>Domain?}
 
     %% Foreign Domain Path
-    DomainCheck -->|Yes| FakeIP[🔀 Return Fake IP<br/>Address]
+    DomainCheck -->|Yes| FakeIP[🔀 Return Fake IP<br/>Address (30.100.x.x)]
     FakeIP --> RouteAdd[🗺️ Add Route to<br/>System Table]
     RouteAdd --> VPNTunnel[🔒 Route via VPN<br/>Tunnel]
     VPNTunnel --> VPNServer[🌐 VPN Server Resolves<br/>Real DNS & Forwards]
@@ -76,9 +76,9 @@ flowchart TD
 
 ### DNS Processing (Green)
 - **🛡️ SealSuite DNS Intercepts Query**: Local DNS server receives and processes the DNS request
-- **🔀 Return Fake IP Address**: Provides a fake IP for foreign domains to trigger VPN routing
+- **🔀 Return Fake IP Address**: Provides a fake IP (30.100.x.x range) for foreign domains to trigger VPN routing
 - **✅ Return Real IP Address**: Provides the actual IP for domestic domains
-- **🗺️ Add Route to System Table**: Creates system-level routing rules for fake IPs
+- **🗺️ Add Route to System Table**: Creates system-level routing rules for fake IPs (30.100.x.x range)
 
 ### Surge Processing (Purple)
 - **⚡ Surge Proxy Handles Request**: Processes requests from proxy-aware applications
@@ -110,7 +110,7 @@ When any application on the system makes a network request, the DNS query is aut
 SealSuite analyzes each incoming DNS query and applies different response strategies based on the domain classification:
 
 #### For Foreign/International URLs:
-- **Returns a fake IP address** instead of the real IP
+- **Returns a fake IP address** (from the 30.100.x.x range) instead of the real IP
 - The fake IP is specifically chosen to trigger SealSuite's routing mechanisms
 - This ensures that the actual DNS resolution will happen on the VPN server
 
@@ -121,7 +121,7 @@ SealSuite analyzes each incoming DNS query and applies different response strate
 
 ### 4. Why Fake IPs for Foreign Requests?
 
-SealSuite uses fake IP addresses for foreign domains for several critical reasons:
+SealSuite uses fake IP addresses (30.100.x.x range) for foreign domains for several critical reasons:
 
 #### Performance Optimization
 - **VPN Server Resolution**: DNS resolution occurs on the VPN server, which often has better connectivity to international services
@@ -169,7 +169,7 @@ When Surge's "enhance mode" is enabled:
 - Maintains a backup mechanism to ensure DNS resolution continues if SealSuite is unavailable
 
 ### Route Table Management
-- Fake IP addresses trigger automatic route table entries
+- Fake IP addresses (30.100.x.x range) trigger automatic route table entries
 - System-level routing ensures traffic flows through the VPN tunnel
 - Dynamic route management adapts to changing network conditions
 
