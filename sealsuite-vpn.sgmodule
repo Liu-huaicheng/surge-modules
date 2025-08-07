@@ -4,8 +4,8 @@
 #!category=VPN
 
 [General]
-# Skip proxy for Claude AI, Anthropic, and Docker Hub domains
-skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com
+# Skip proxy for Claude AI, Anthropic, Gemini, and Docker Hub domains
+skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.gemini.google.com, gemini.google.com
 
 
 [Rule]
