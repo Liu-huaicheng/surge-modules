@@ -73,33 +73,9 @@ To update the module to get the latest changes:
 
 ### What This Module Does
 
-The module adds multi-layer exclusions to your Surge setup:
+The module configures Surge to work seamlessly with SealSuite VPN by implementing multiple layers of traffic routing rules. It ensures that specific domains, IP addresses, and processes are handled appropriately - either by blocking access, routing directly through the VPN, or bypassing proxy settings entirely.
 
-```ini
-#!name=SealSuite VPN Integration
-#!desc=Enable SealSuite VPN to work alongside Surge with domain exclusions, IP exclusions, and process rules
-#!system=mac
-#!category=VPN
-
-[General]
-# Skip proxy for Claude AI, Anthropic, and Docker Hub domains
-skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.docker.io, docker.io
-
-
-[Rule]
-# Reject Claude AI and Anthropic domains and IP addresses
-DOMAIN-SUFFIX,claude.ai,REJECT,extended-matching
-DOMAIN-SUFFIX,anthropic.com,REJECT,extended-matching
-IP-CIDR,160.79.104.10/32,REJECT
-
-# Direct connection for 30.100.0.0/16 subnet (bypass VPN)
-IP-CIDR,30.100.0.0/16,DIRECT
-
-# Direct connection for corplink-service process
-PROCESS-NAME,corplink-service,DIRECT
-```
-
-This configuration provides comprehensive protection:
+The module provides comprehensive traffic management through:
 
 - **Domain-based exclusion** (`skip-proxy`): Handles domain resolution and works with Surge's proxy server
 - **Domain suffix rejection** (`DOMAIN-SUFFIX`): Completely blocks access to Claude AI and Anthropic domains with extended matching for comprehensive coverage
