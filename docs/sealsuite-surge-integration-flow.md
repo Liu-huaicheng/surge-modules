@@ -29,7 +29,7 @@ flowchart TD
     DNSIntercept --> DomainCheck{🌍 Foreign/International<br/>Domain?}
 
     %% Foreign Domain Path
-    DomainCheck -->|Yes| FakeIP[🔀 Return Fake IP<br/>Address (30.100.x.x)]
+    DomainCheck -->|Yes| FakeIP[🔀 Return Fake IP<br/>Address 30.100.x.x]
     FakeIP --> RouteAdd[🗺️ Add Route to<br/>System Table]
     RouteAdd --> VPNTunnel[🔒 Route via VPN<br/>Tunnel]
     VPNTunnel --> VPNServer[🌐 VPN Server Resolves<br/>Real DNS & Forwards]
