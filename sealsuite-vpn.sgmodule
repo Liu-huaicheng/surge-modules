@@ -12,6 +12,7 @@ skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, *.claude.com, claude.com, cl
 # Reject Claude AI and Anthropic domains and IP addresses
 DOMAIN-SUFFIX,claude.ai,REJECT,extended-matching
 DOMAIN-SUFFIX,anthropic.com,REJECT,extended-matching
+DOMAIN-SUFFIX,claude.com,REJECT,extended-matching
 IP-CIDR,160.79.104.10/32,REJECT
 
 # Direct connection for 30.100.0.0/16 subnet (bypass VPN)
