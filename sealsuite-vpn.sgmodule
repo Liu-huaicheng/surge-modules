@@ -5,7 +5,7 @@
 
 [General]
 # Skip proxy for Claude AI, Anthropic, Gemini, and Docker Hub domains
-skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.gemini.google.com, gemini.google.com, *.github.com
+skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.gemini.google.com, gemini.google.com, *.github.com, *.cloudfront.net
 
 
 [Rule]
