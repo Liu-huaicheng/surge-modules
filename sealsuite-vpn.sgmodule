@@ -13,6 +13,8 @@ skip-proxy = %APPEND% *.claude.ai, *.anthropic.com, claude.ai, anthropic.com, *.
 DOMAIN-SUFFIX,claude.ai,REJECT,extended-matching
 DOMAIN-SUFFIX,anthropic.com,REJECT,extended-matching
 DOMAIN-SUFFIX,claude.com,DIRECT,extended-matching
+DOMAIN-SUFFIX,api.mymyhub.com,DIRECT,extended-matching
+
 
 IP-CIDR,160.79.104.10/32,REJECT
 
